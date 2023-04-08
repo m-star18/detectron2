@@ -18,6 +18,7 @@ from detectron2.projects.point_rend import add_pointrend_config
 from detectron2.utils.logger import setup_logger
 
 from point_sup import PointSupDatasetMapper, add_point_sup_config
+from tools import add_register_custom_dataset
 
 
 class Trainer(DefaultTrainer):
@@ -103,6 +104,8 @@ def main(args):
 
 
 if __name__ == "__main__":
+    # Register your custom datasets
+    add_register_custom_dataset()
     args = default_argument_parser().parse_args()
     print("Command Line Args:", args)
     launch(
