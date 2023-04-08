@@ -83,7 +83,7 @@ def transform_instance_annotations(
             The "bbox_mode" field will be set to XYXY_ABS.
     """
     annotation = base_transform_instance_annotations(
-        annotation, transforms, image_size, keypoint_hflip_indices
+        annotation, transforms, image_size
     )
 
     assert ("point_coords" in annotation) == ("point_labels" in annotation)
