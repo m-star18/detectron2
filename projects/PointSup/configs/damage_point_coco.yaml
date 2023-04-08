@@ -1,0 +1,17 @@
+_BASE_: "Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  MASK_ON: True
+  RESNETS:
+    DEPTH: 50
+  ROI_MASK_HEAD:
+    NAME: "MaskRCNNConvUpsamplePointSupHead"
+INPUT:
+  SAMPLE_POINTS: 10
+  POINT_SUP: True
+DATASETS:
+  TRAIN: ("custom_damage_train",)
+  TEST: ("custom_damage_val",)
+SOLVER:
+  STEPS: (2100, 2500)
+  MAX_ITER: 300
