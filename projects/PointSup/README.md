@@ -39,3 +39,20 @@ If you use PointSup, please use the following BibTeX entry.
   year={2021}
 }
 ```
+
+## How to use the inference app
+Set up the environment using Docker.
+```bash
+git clone git@github.com:m-star18/detectron2.git
+cd detectron2/projects/PointSup/
+mkdir model
+```
+
+Please place the trained model's `.pth` file under the `model/` directory.
+
+```bash
+docker build -t pointsup_app .
+docker run -p 8501:8501 pointsup_app
+```
+
+After that, you should be able to use the app by accessing `http://localhost:8501/`.
